@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+<body style="background-color: rgb(222, 215, 206);">
+    <style>
+        h1{
+            text-align: center;
+            font-size: 100px;
+        
+        }
+        p{
+            text-align: center;
+            font-size: 30px;  
+        }
+        label{
+        font-size: 30px;
+        text-align: center;
+        margin-left: 10px;
+
+    }
+    input{
+        font-size: 30px;
+        text-align: center;
+        display:inline-flex;
+        size: 110px;
+        border-radius: 5px;
+        
+    }
+    
+    </style>
+    <h1>Thank you! </h1>
+    <p>Your registration was successful <br>
+        An email will be sent to you with additional information
+        </p><br>
+    <p>Now just write tasks you want to do before your event and specify the date 
+    so in this way we can send an reminder email for you!</p>
+    </style>
+<form action="{% url 'tasksform' %}" method="POST" style="text-align: center;">
+    {% csrf_token %}
+<label for="task:">Task:</label><br>
+<input type="text" id="task" name="task" required><br>
+<label for="date" >Date:</label><br>
+<input type="text" id="date" name="date" placeholder="e.g.,2024-02-03" required><br>
+<label for="email" >Email:</label><br>
+<input type="email" id="email" name="email" required><br><br>
+<input type="submit" value="submit" />
+</div>
+</form>
+</body>
+</head>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<body style="background-color:rgb(255, 255, 255);">
+<style>
+     .head{
+        text-align: center;
+        text-shadow: 3px 1px rgb(239, 233, 233);
+        font-size: 30px;
+    }
+
+    .q{
+       
+        font-size: 30px; 
+        text-shadow:2px 0px rgb(225, 219, 209);
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        
+    }
+    .a{
+       
+        font-size: 30px;
+        background-color: rgb(235, 225, 207);
+        border-radius: 5px;
+        display:inline-block;
+        font-family:serif;
+    }
+   
+
+   form{
+        background-color: rgb(225, 219, 209);
+        border-radius: 10px;
+        text-align:left;
+        display:inline-block;
+        font-family:serif;
+        
+
+    }
+    pre{
+        text-align: center;
+    }
+    label{
+        font-size: 30px;
+        text-align: center;
+        margin-right:20px ;
+
+    }
+    input{
+        font-size: 30px;
+        text-align: center;
+        display:inline-flex;
+        margin-right:10px ;
+        
+    }
+    h1{
+        text-align: center;
+        text-shadow: 3px 1px rgb(169, 166, 166);
+    }
+    .pr{
+      font-size: 20px;
+    }
+   
+</style>
+<h1>About {{ mymember.description }}</h1> 
+<p style="text-align: center;font-size: 30px;">Here you can see some details about {{ mymember.description }}</p>
+<pre>
+
+<span class="q">Date:</span><span class="a">{{ mymember.date }}</span>
+
+<span class="q">Time:</span><span class="a"> {{ mymember.time}}</span>
+
+<span class="q">Location:</span><span class="a"> {{ mymember.location}}</span>
+
+
+<form action="{% url 'registerationform' %}" method="POST">
+    {% csrf_token %}
+    <h1>REGISTERTION FORM</h1>
+<p  class="pr"  style="text-align: center;">Fill in the blanks to complete your registration<br>
+after that just click on "submit" button</submit></p>
+  <label for="Fisrt Name:">First name:</label>
+  <input type="First Name:" id="firstname" name="firstname">
+  <label for="last Name:">Last name:</label>
+  <input type="text" id="lastname" name="lastname" >
+  <label for="Email:">Email:</label>
+  <input type="text" id="email" name="email" ><br><br>
+  <div style="text-align:center">  
+    <input type="submit" />  
+</div>  
+</form>
+
+
+
+</pre>
+</body>
+</html>

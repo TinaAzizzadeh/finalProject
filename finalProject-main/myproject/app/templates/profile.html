@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<body >
+    <h1>Event Creation Website</h1>
+    <p class="firstp">
+    Hi there!This website is for creating and participating in various events created by you<br>
+    If you plan to create an event, fill out the event creation form ;otherwise,<br>
+     if you want to participate in an event, just fill out the registration form.
+    </p>
+   
+<style>
+
+.first-form{
+        background-color: rgb(225, 219, 209);
+        border-radius: 10px;
+        text-align:center;
+        display:inline-block;
+       
+    }
+    .second-form{
+        background-color: rgb(225, 219, 209);
+        border-radius: 10px;
+        text-align:left;
+        display:inline-block;
+        
+       
+    }
+    label{
+        font-size: 30px;
+        text-align: center;
+        margin-left: 10px;
+
+    }
+    input{
+        font-size: 30px;
+        text-align: center;
+        display:inline-flex;
+        size: 110px;
+        border-radius: 5px;
+        
+    }
+    .head{
+        text-align: center;
+        text-shadow: 3px 1px rgb(169, 166, 166);
+        font-size: 30px;
+    }
+
+   .list1{
+    text-align: center;
+   }
+    
+   .list2{
+    text-align: center;
+   }
+
+
+    
+    body{
+        background-color: rgb(213, 206, 196);
+    }
+    .firstp{
+      font-size: xx-large;
+      text-align: center;
+    }
+
+    h1{
+        font-size: 120px;
+        text-align: center;
+        color: rgb(23, 29, 29);
+    }
+    ul{
+      text-align:center;
+      font-size:40px;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    
+    }
+</style>
+<br><br><br>
+<ul>
+    {% for x in myevents %}
+     <li> <a href="details/{{ x.id }}">{{ x.description }}</a></li>
+    {% endfor %}
+  </ul>
+
+    <br><br><br><br>
+<div class="list1">
+<form class="second-form"   action="{% url 'createventform' %}" method="POST">
+    {% csrf_token %}
+    <h1 class="head"> CREATING AN EVENT </h1>
+    <p style="text-align: center;">Fill in the blanks to create an event<br>
+        after that just click on "submit" button</p>
+  <label for="date" class="form-label">Date:</label><br>
+  <input type="text" id="date" name="date" class="form-control" placeholder=" for example: 2024-12-03" required><br>
+  <label for="time" class="form-label">Time:</label><br>
+  <input type="text" id="time" name="time" class="form-control" placeholder=" for example: 18:30:00" required><br><br>
+  <label for="location" class="form-label">Location:</label><br>
+  <input type="text" id="location" name="location" class="form-control" required><br><br>
+  <label for="description" class="form-label">Description:</label><br>
+  <input type="text" id="description" name="description" class="form-control" required><br><br>
+  <label for="email" class="form-label">Email:</label><br>
+  <input type="email" id="email" name="email" class="form-control" required><br><br>
+  
+  <div style="text-align:center"> <input type="submit" value="submit" /> </div>
+</div>
+</form>
+
+
+  
+</body>
+</html>
